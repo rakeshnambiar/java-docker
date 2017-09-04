@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+   jdkSetup:
+        image: java:openjdk-8
+
+   mvnSetup:
+        image: maven:3.5.0
+        volumes:
+          - .:/usr/tools/java/wicket-demo/
+
+        working_dir: /usr/tools/java/wicket-demo/
+        command: /usr/tools/java/wicket-demo/startup.sh
+        ports:
+            - "7070:7070"
